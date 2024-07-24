@@ -2,12 +2,16 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import os
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 app = Flask(__name__)
 
 
 
-client = MongoClient(os.environ.get(SECRET_URI))
+client = MongoClient(os.environ.get('SECRET_URI'))
 db = client['social_platform']
 users_collection = db['users']
 posts_collection = db['posts']
