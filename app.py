@@ -12,6 +12,7 @@ app = Flask(__name__)
 
 
 client = MongoClient(os.environ.get('SECRET_URI'))
+print(os.environ.get('SECRET_URI'))
 db = client['social_platform']
 users_collection = db['users']
 posts_collection = db['posts']
