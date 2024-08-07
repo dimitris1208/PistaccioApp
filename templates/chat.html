@@ -7,18 +7,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h2>Group Chat</h2>
-    <div>
-        {% for message in messages %}
-            <p><strong>{{ message.username }}:</strong> {{ message.content }}</p>
-        {% endfor %}
-    </div>
-    <form action="/post" method="POST">
-        <input type="text" name="content" placeholder="Enter your message" required>
-        <button type="submit">Send</button>
-    </form>
-    <form action="/logout" method="GET">
-        <button type="submit">Logout</button>
-    </form>
+    <main>
+        <div class="chat-container">
+            <h2>Group Chat</h2>
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="message">
+                        <p><strong>{{ message.username }}:</strong> {{ message.content }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <form class="chat-form" action="/post" method="POST">
+                <input type="text" name="content" placeholder="Enter your message" required>
+                <button class="send-btn" type="submit">Send</button>
+            </form>
+            <form action="/logout" method="GET">
+                <button class="logout-btn" type="submit">Logout</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        Made by Straga
+    </footer>
 </body>
 </html>

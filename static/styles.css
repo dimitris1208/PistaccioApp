@@ -1,28 +1,96 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f06, #4a90e2);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 110vh;
     margin: 0;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 60px; /* Space for footer */
+}
+
+.chat-container, .login-container {
+    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
-    background-color: #f0f0f0;
-}
-
-h1, h2 {
-    color: #333;
-}
-
-form {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
     margin-bottom: 20px;
 }
 
-input, textarea, button {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
+h2 {
+    margin: 0 0 20px;
+    color: #fff;
 }
 
-.post {
-    background-color: white;
-    border: 1px solid #ccc;
-    margin: 10px 0;
+.messages {
+    max-height: 400px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.2);
     padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.message {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Ensure long words break to fit the container */
+    overflow-wrap: break-word; /* Fallback for word-wrap */
+}
+
+.chat-form, .login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-form input, .login-form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.send-btn, .login-btn, .logout-btn {
+    padding: 10px;
+    background: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 10px;
+}
+
+.send-btn:hover, .login-btn:hover, .logout-btn:hover {
+    background: #357ab7;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
