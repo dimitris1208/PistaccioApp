@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Group Chat</h2>
+    <div>
+        {% for message in messages %}
+            <p><strong>{{ message.username }}:</strong> {{ message.content }}</p>
+        {% endfor %}
+    </div>
+    <form action="/post" method="POST">
+        <input type="text" name="content" placeholder="Enter your message" required>
+        <button type="submit">Send</button>
+    </form>
+    <form action="/logout" method="GET">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
