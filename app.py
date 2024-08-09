@@ -5,10 +5,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from apscheduler.schedulers.background import BackgroundScheduler
+from flask_cors import CORS
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = os.environ.get('SECRET_KEY')
 app.permanent_session_lifetime = timedelta(minutes=30)
 
