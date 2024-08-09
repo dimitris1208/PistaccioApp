@@ -10,6 +10,9 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY')
+app.permanent_session_lifetime = timedelta(minutes=30)
+
+
 
 client = MongoClient(os.environ.get('SECRET_URI'))
 db = client['social_platform']
@@ -36,6 +39,7 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        session.permanent = True
         username = request.form['username']
         password = request.form['password']
         user = db.users.find_one({"username": username, "password": password})
