@@ -27,8 +27,7 @@ def add_users():
 
 """
 
-app.config['SESSION_TYPE'] = 'filesystem'  # or another valid type
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
 session.permanent = True
 
