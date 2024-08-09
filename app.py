@@ -28,10 +28,6 @@ def add_users():
 """
 
 
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
-session.permanent = True
-
-
 
 @app.route('/')
 def index():
